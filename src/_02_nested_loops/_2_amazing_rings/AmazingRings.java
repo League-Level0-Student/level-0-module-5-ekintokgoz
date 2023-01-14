@@ -39,22 +39,47 @@ import processing.core.PImage;
 public class AmazingRings extends PApplet {
     static final int WIDTH = 800;
     static final int HEIGHT = 600;
-
+    int x = 300;
+    int speed = 20;
+    int x2 = 500;
+    int speed2 = 20;
+    
     PImage waldo;
 
     @Override
     public void settings() {
-
+    	size(800,400);
     }
 
     @Override
     public void setup() {
-
+    noFill();
+    background(255,255,255);
     }
 
     @Override
     public void draw() {
-
+    	background(255,255,255);
+    	for(int i=0; i<25; i++) {
+    		ellipse(x,200,20+12*i,20+12*i);
+    	}
+    	x = x+speed;
+    	if(x>WIDTH) {
+    	speed = -speed;
+    	}
+    	if(x<0) {
+    		speed = -speed;
+    	}
+    	for(int i=0; i<25; i++) {
+    		ellipse(x2,200,20+12*i,20+12*i);
+    	}
+    	x2 = x2-speed2;
+    	if(x2>WIDTH) {
+    	speed2 = -speed2;
+    	}
+    	if(x2<0) {
+    		speed2 = -speed2;
+    	}
     }
 
     static public void main(String[] args) {
